@@ -1,7 +1,31 @@
-
 <app-header></app-header>
-<ion-content>
-  
 
-  <app-footer></app-footer>
+<ion-content>
+ <h2 style="text-align: center; color: rgb(45, 171, 106);">Les meilleurs Laptops</h2>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4" *ngFor="let laptop of laptops">
+        <ion-card class="product-card" (click)="voirDetails(laptop)">
+          <img [src]="laptop.image" alt="Image Laptop" />
+
+          <ion-card-content>
+            <h3>{{ laptop.nom }}</h3>
+
+            <div class="stars">
+              <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+                <ion-icon
+                  name="star"
+                  [color]="i < laptop.rating ? 'warning' : 'medium'">
+                </ion-icon>
+              </ng-container>
+              <span class="vote">{{ laptop.votes }}</span>
+            </div>
+
+            <div class="prix">{{ laptop.price | number }} FCFA</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

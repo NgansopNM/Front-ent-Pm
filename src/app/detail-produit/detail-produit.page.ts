@@ -103,8 +103,55 @@ export class DetailProduitPage implements OnInit { // Changed from ProductDetail
       stock: 20,
       seller: 'Time Savers'
     },
-    
-    
+
+     {
+      id:20,
+      name: 'Mug intérieur coloré 315ml',
+      image: 'assets/images/laptop1.jpg',
+      rating: 5,
+      reviews: 433,
+      price: '71502'
+    },
+    {
+      id:21,
+      name: 'Montre Connectée 5e génération - occasion Chine',
+      image: 'assets/images/laptop2.jpg',
+      rating: 5,
+      reviews: 421,
+      price: '73251'
+    },
+    {
+      id:22,
+      name: "Pyramid International - Bouteille d'eau plastique",
+      image: 'assets/images/laptop1.jpg',
+      rating: 4,
+      reviews: 302,
+      price: '63004'
+    },
+    { 
+      id:23,
+      name: "Pyramid International - Bouteille d'eau plastique",
+      image: 'assets/images/laptop-apleliquidation.jpg',
+      rating: 4,
+      reviews: 302,
+      price: '63003'
+    },
+    {
+      id:24,
+      name: "Pyramid International - Bouteille d'eau plastique",
+      image: 'assets/images/laptop.jpg',
+      rating: 4,
+      reviews: 302,
+      price: '60000'
+    },
+    {
+      id:25,
+      name: "Pyramid International - Bouteille d'eau plastique",
+      image: 'assets/images/laptop-liquidation.jpg',
+      rating: 4,
+      reviews: 302,
+      price: '15000'
+    }  
   ];
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
