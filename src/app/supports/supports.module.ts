@@ -4,20 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SuportsPageRoutingModule } from './suports-routing.module';
+import { SupportsPageRoutingModule } from './supports-routing.module';
 
-import { SuportsPage } from './suports.page';
+import { SupportsPage } from './supports.page';
 import { SharedModule } from '../shared/shared.module';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SuportsPageRoutingModule,
+    SupportsPageRoutingModule,
     SharedModule
   ],
-  declarations: [SuportsPage]
+  declarations: [SupportsPage]
 })
-export class SuportsPageModule {}
+export class SupportsPageModule {}

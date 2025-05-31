@@ -1,14 +1,13 @@
-// src/app/detail-produit/detail-produit.page.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-detail-produit', // Changed from app-product-detail
-  templateUrl: './detail-produit.page.html', // Changed from ./product-detail.page.html
-  styleUrls: ['./detail-produit.page.scss'], // Changed from ./product-detail.page.scss
+  selector: 'app-detail-produit',
+  templateUrl: './detail-produit.page.html', 
+  styleUrls: ['./detail-produit.page.scss'], 
   standalone:false,
 })
-export class DetailProduitPage implements OnInit { // Changed from ProductDetailPage
+export class DetailProduitPage implements OnInit { 
   productId: string | null = null;
   product: any;
   similarProducts: any[] = [];
@@ -16,90 +15,201 @@ export class DetailProduitPage implements OnInit { // Changed from ProductDetail
   private allAvailableProducts = [
     {
       id: 1,
-      image: 'assets/pppe.jpg',
-      name: 'Mug intérieur coloré 315ml',
-      rating: 4,
+      image: 'assets/laptop1.jpg', 
+      name: 'Laptop HP 11eme generation',
+      rating: 10,
       reviews: 433,
-      price: '7 150',
-      description: 'Ce mug en céramique de haute qualité est parfait pour votre café ou thé du matin. Son intérieur coloré ajoute une touche de gaieté à votre routine quotidienne. Disponible en plusieurs couleurs vives. Idéal pour un cadeau.',
+      price: '160 000',
+      description: 'Ordinateur HP 11eme generation, disque dur 512Go, RAM: 16Go',
       stock: 50,
       seller: 'Boutique XYZ'
     },
     {
       id: 2,
-      image: 'assets/apple-watch-main.png',
-      name: 'Montre Connectee 5 eme generation. occassion chine',
+      image: 'assets/laptop2.jpg',
+      name: 'Laptop DELL 13eme generation ',
       rating: 3,
       reviews: 421,
-      price: '7 325',
-      description: 'Découvrez la montre connectée de 5ème génération, une occasion unique de profiter de la technologie avancée à petit prix. Importée de Chine, elle offre des fonctionnalités de suivi d\'activité, notifications et plus encore.',
+      price: '210 000',
+      description: 'Laptop DELL, 13eme genration, 1To de Disque dur et 32Go de Ram. d;origine ruisse',
       stock: 12,
       deliveryInfo: 'Livraison standard en 5-7 jours ouvrables. Frais de livraison : 1500 fcfa.',
       seller: 'Tech Deals'
     },
     {
       id: 3,
-      image: 'assets/laptop-3.jpg',
-      name: 'Pyramid International Bouteille d\'eau en plastique transparent',
+      image:  'assets/deckstop1.jpg',
+      name: 'Ton deckstop prod de marque DELL',
       rating: 4,
       reviews: 302,
-      price: '7 425',
-      description: 'Cette bouteille d\'eau en plastique transparent de Pyramid International est légère et durable, parfaite pour le sport, le bureau ou les voyages. Capacité de 500ml, facile à nettoyer et sans BPA.',
+      price:'75 000',
+      description: 'Deckstop DElL 500Go de Disque Dur, et 8Go de Ram.',
       stock: 100,
       seller: 'Eco-Shop'
     },
     {
       id: 4,
-      image: 'assets/laptop-1.jpg',
-      name: 'Produits High-Tech Performants',
+      image: 'assets/img/support-agenda.jpg',
+      name: 'Support Spiral',
       rating: 5,
       reviews: 120,
-      price: '8 000',
-      description: 'Découvrez notre sélection de produits high-tech performants, conçus pour améliorer votre quotidien. Performances optimales et fiabilité garantie.',
+      price: '1 200',
+      description: 'Chahiers pour prendre vos notes de cours',
       stock: 30,
       seller: 'GadgetZone'
     },
     {
       id: 5,
-      image: 'assets/pink-smartwatch.png',
-      name: 'Montre CConnectee 5 eme generation. occassion chine',
+      image: 'assets/img/support-bloc.jpg',
+      name: 'cahier de la validation',
       rating: 4,
       reviews: 250,
-      price: '13 750',
-      description: 'Montre connectée rose, 5ème génération. Occasion de Chine. Bracelet confortable, écran tactile. Idéale pour le suivi sportif et les notifications.',
+      price: '2 000',
+      description: 'Valider prohrametion mobile sans stress',
       stock: 8,
       seller: 'Zenith Watches'
     },
     {
       id: 6,
-      image: 'assets/black-smartwatch.png',
-      name: 'Montre CConnectee 7 eme generation. occassion chine',
+      image: 'assets/img/support-carnet.jpg',
+      name: 'Vos block note personalise',
       rating: 3,
       reviews: 180,
-      price: '13 750',
-      description: 'Montre connectée noire, 7ème génération. Occasion de Chine. Plus rapide et plus précise. État impeccable, parfait pour un usage quotidien.',
+      price: '7 000',
+      description: 'Block de notes personalise',
       stock: 5,
       seller: 'Global Imports'
     },
     {
       id: 7,
-      image: 'assets/pink-smartwatch-square.png',
-      name: 'Montre CConnectee 4 eme generation. occassion chine',
+      image: 'assets/montre.jpg',
+      name: 'Montre intelligente',
       rating: 4,
       reviews: 150,
-      price: '4 725',
+      price: '9 200',
       description: 'Montre connectée rose à écran carré, 4ème génération. Occasion de Chine. Fonctions essentielles pour le sport et la vie connectée.',
       stock: 20,
       seller: 'Time Savers'
     },
     {
-      id: 18,
-      image: 'assets/pink-smartwatch-square.png',
-      name: 'Electomique domestique intelligent',
+      id: 8,
+      image: 'assets/montre3.jpg',
+      name: 'Montre puissante d\'origine chinoise',
       rating: 4,
       reviews: 150,
-      price: '4 725',
-      description: 'Montre connectée rose à écran carré, 4ème génération. Occasion de Chine. Fonctions essentielles pour le sport et la vie connectée.',
+      price: '7 800',
+      description: 'Montre connectée  4ème génération. Occasion de Canada. Fonctions essentielles pour le sport et la vie connectée.',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+    {
+      id: 9,
+      image: 'assets/montreconnectee.jpg',
+      name: 'Montre super intelligent d\'origine suisse',
+      rating: 4,
+      reviews: 150,
+      price: '8 500',
+      description: 'Montre connectee intelligent, mesure la pression arterielle, la glycymie le taut de sang...',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+    {
+      id: 10,
+      image: 'assets/cartememoire.jpg',
+      name: 'Cartes memoires bon prix',
+      rating: 4,
+      reviews: 150,
+      price: '6 000',
+      description: 'Cartes memoires 2Go, 4Go, 8Go, 16Go, 64Go',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+     {
+      id: 11,
+      image:'assets/chargeur.jpg',
+      name: 'Chargeur puissant tres rapide',
+      rating: 4,
+      reviews: 150,
+      price: '9 200',
+      description: 'Chargeurs pour laptop',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+    
+     {
+      id: 12,
+      image:'assets/disque-dur.jpg',
+      name:'Disque dur SSD hautes perfomances',
+      rating: 4,
+      reviews: 150,
+      price: '19 200',
+      description: 'Les disques dur SSD a partir de 256Go',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+     {
+      id: 13,
+      image: 'assets/casquebleu.jpg',
+      name:'Casque d\'origine Allemand',
+      rating: 4,
+      reviews: 150,
+      price: '6 000',
+      description: 'Les casques qui cognent comme le our-feur',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+    {
+      id: 14,
+      image:  'assets/casquez.jpg',
+      name:'Casque Belge',
+      rating: 4,
+      reviews: 150,
+      price: '4 500',
+      description: 'Casques Belge',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+     {
+      id: 15,
+      image:  'assets/aidspod-liquidation.jpg',
+      name:'Les aidspods pour suivre vos tutorielles',
+      rating: 4,
+      reviews: 150,
+      price: '3 200',
+      description: 'Aidspod stylise',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+     {
+      id: 16,
+      image:  'assets/sac.jpg',
+      name:'Sac a bon prix',
+      rating: 4,
+      reviews: 150,
+      price:  '10 000',
+      description: 'Sac a dos ',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+     {
+      id: 17,
+      image: 'assets/parapluie.jpg',
+      name:'Casque Belge',
+      rating: 4,
+      reviews: 150,
+      price: '4 500',
+      description: 'Les paraplus vennant du maroc',
+      stock: 20,
+      seller: 'Time Savers'
+    },
+     {
+      id: 18,
+      image:  'assets/epouventaille1.jpg',
+      name:'Eprouventaille decoratif',
+      rating: 4,
+      reviews: 150,
+      price: '200',
+      description: 'Eprouventailles vous permettra de vous gettez un peut d\'air',
       stock: 20,
       seller: 'Time Savers'
     },

@@ -23,10 +23,7 @@ const routes: Routes = [
     path: 'machines',
     loadChildren: () => import('./machines/machines.module').then( m => m.MachinesPageModule)
   },
-  {
-    path: 'suports',
-    loadChildren: () => import('./suports/suports.module').then( m => m.SuportsPageModule)
-  },
+  
   {
     path: 'autres',
     loadChildren: () => import('./autres/autres.module').then( m => m.AutresPageModule)
@@ -39,6 +36,15 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'supports',
+    loadChildren: () => import('./supports/supports.module').then( m => m.SupportsPageModule)
+  },  {
+    path: 'panier',
+    loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
+  },
+
+
 ];
 
 @NgModule({

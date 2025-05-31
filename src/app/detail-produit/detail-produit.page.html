@@ -32,12 +32,17 @@
               <ion-select-option value="3">3</ion-select-option>
               <ion-select-option value="4">4</ion-select-option>
               <ion-select-option value="5">5</ion-select-option>
+              <ion-select-option value="1">6</ion-select-option>
+              <ion-select-option value="2">7</ion-select-option>
+              <ion-select-option value="3">8</ion-select-option>
+              <ion-select-option value="4">9</ion-select-option>
+              <ion-select-option value="5">10</ion-select-option>
             </ion-select>
           </div>
         </div>
 
         <div class="action-buttons">
-          <ion-button expand="block" class="add-to-cart-button">
+          <ion-button expand="block" class="add-to-cart-button" >
             Ajouter au panier
             <ion-icon name="cart-outline" slot="end"></ion-icon>
           </ion-button>
@@ -55,7 +60,7 @@
           </div>
           <div class="delivery-row">
             <ion-select value="+237 682525919" interface="popover" class="delivery-select">
-              <ion-select-option value="+237 682525919">+237 682525919</ion-select-option>
+              <ion-select-option value="+237 682525919">+237 677843647</ion-select-option>
             </ion-select>
           </div>
         </div>
@@ -73,7 +78,7 @@
       </div>
     </div>
 
-    <h2 class="similar-products-title">Produits similaire</h2>
+    <h2 class="similar-products-title">Produits</h2>
     <div class="similar-products-container cards-container">
       <ion-card *ngFor="let similarProduct of similarProducts" class="product-card" [routerLink]="['/detail-produit', similarProduct.id]">
         <img [src]="similarProduct.image" [alt]="similarProduct.name" />

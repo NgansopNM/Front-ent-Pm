@@ -1,0 +1,35 @@
+<ion-content class="page-supports">
+  <h1 class="main-page-title">Nos Supports</h1>
+
+  <div class="cards-container">
+    <div class="product-card" *ngFor="let support of supports" (click)="voirDetails(support)">
+      <img [src]="support.image" [alt]="support.nom" />
+
+      <ion-card-header>
+        <ion-card-title>{{ support.nom }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="description">{{ support.description }}</div>
+        <div class="details">{{ support.type }}</div>
+
+        <div class="rating">
+          <span class="stars">{{ getStars(support.note) }}</span>
+          <span class="avis-count">{{ support.avis }} avis</span>
+        </div>
+
+        <div class="price">{{ support.prix | number }} FCFA</div>
+
+        <ion-button
+          expand="block"
+          color="primary"
+          (click)="ajouterAuPanier(support); $event.stopPropagation()"
+        >
+          Ajouter au panier
+        </ion-button>
+      </ion-card-content>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>
