@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'produit',
-    loadChildren: () => import('./produit/produit.module').then(m => m.ProduitPageModule)
-  },
-  {
     path: 'montres',
     loadChildren: () => import('./montres/montres.module').then( m => m.MontresPageModule)
   },
@@ -39,9 +35,18 @@ const routes: Routes = [
   {
     path: 'supports',
     loadChildren: () => import('./supports/supports.module').then( m => m.SupportsPageModule)
-  },  {
+  },
+  {
     path: 'panier',
     loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'achat',
+    loadChildren: () => import('./achat/achat.module').then( m => m.AchatPageModule)
   },
 
 

@@ -1,0 +1,81 @@
+
+<ion-content>
+  <div class="invoice-container">
+    <h1 class="ion-text-center">Détails de votre commande</h1>
+
+    <ion-card class="invoice-card">
+      <ion-card-header>
+        <ion-card-title>Récapitulatif de la Facture</ion-card-title>
+        <ion-card-subtitle>Merci pour votre achat !</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item *ngFor="let item of orderedItems" class="product-row">
+            <ion-thumbnail slot="start">
+              <img [src]="item.product.image" [alt]="item.product.name" />
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ item.product.name }}</h2>
+              <p>Prix unitaire : {{ item.product.price }} fcfa</p>
+              <p>Quantité : {{ item.quantity }}</p>
+            </ion-label>
+            <div slot="end" class="item-total-price">
+              <p>{{ getItemTotalPrice(item) | number:'1.0-0' }} fcfa</p>
+            </div>
+          </ion-item>
+
+          <ion-item class="total-summary">
+            <ion-label>
+              <h3>Total à Payer :</h3>
+            </ion-label>
+            <ion-text color="primary" slot="end">
+              <h2>{{ totalOrderPrice | number:'1.0-0' }} fcfa</h2>
+            </ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="payment-info ion-padding">
+      <p class="ion-text-center">
+        Veuillez effectuer votre paiement en composant l'un des numéros suivants :
+      </p>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" class="ion-text-center">
+            <ion-card class="payment-card">
+              <img src="assets/mtn.jpg" alt="MTN Mobile Money" class="payment-logo" />
+              <ion-card-header>
+                <ion-card-title>MTN MoMo</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p class="phone-number">{{ paymentNumbers.mtn }}</p>
+                <ion-button size="small" fill="outline" (click)="copyPhoneNumber(paymentNumbers.mtn)">
+                  Copier le numéro
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" class="ion-text-center">
+            <ion-card class="payment-card">
+              <img src="assets/orange.png" alt="Orange Money" class="payment-logo" />
+              <ion-card-header>
+                <ion-card-title>Orange Money</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p class="phone-number">{{ paymentNumbers.orange }}</p>
+                <ion-button size="small" fill="outline" (click)="copyPhoneNumber(paymentNumbers.orange)">
+                  Copier le numéro
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <p class="instruction">
+        Après le paiement, votre commande sera validée et préparée pour la livraison.
+      </p>
+    </div>
+  </div>
+</ion-content>

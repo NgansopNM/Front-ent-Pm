@@ -1,97 +1,290 @@
-.page-supports {
-  --background: linear-gradient(to bottom, #e6f0ff, #ffffff);
-  padding: 20px;
+/*
+  Base Styles & Page Layout
+  -------------------------
+  These styles define the overall look and feel of the page,
+  including background, padding, and general container properties.
+*/
+ion-content { // Applique directement à l'ion-content
+  --background: linear-gradient(to bottom, #e6f0ff, #ffffff); // Bleu clair doux → blanc
+  padding: 15px; // Utilise le padding du premier bloc pour une meilleure adaptabilité
 
-  .main-page-title {
-  margin-top: 190px;
-  margin-bottom: 40px;
-  color: #007bff;
-  font-size: 2.5em;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #ccc;
-  max-width: 90%;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  // Utilisation d'une classe globale si vous l'appliquez à un div interne
+  // ou si c'est la page Home, vous pouvez ne pas avoir besoin d'une classe wrapper ici.
+  // Pour l'exemple, je l'applique directement à l'ion-content et aux descendants.
 }
 
 
+/*
+  Main Page Title
+  ---------------
+  Styling for the primary heading of the page,
+  ensuring it's prominent and well-aligned.
+*/
+.main-page-title { // Pas besoin de .page-supports si ion-content est le parent
+  font-size: 2.2em; // Du premier bloc, légèrement ajusté
+  font-weight: 700; // Du premier bloc
+  color: #007bff;
+  text-align: center;
+  margin: 40px auto 30px auto; // Du premier bloc
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+  width: fit-content;
+  max-width: 90%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); // Ajout du second bloc
+}
+
+/*
+  Section Subtitle (si vous l'utilisez toujours)
+  ------------------
+  Styling pour les titres de section secondaires.
+*/
+.section-subtitle {
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #007bff;
+  margin: 30px auto 20px auto;
+  text-align: center;
+  width: fit-content;
+  max-width: 90%;
+}
+
+/*
+  Product Cards Container
+  -----------------------
+  Layout for the grid of product cards,
+  making them responsive and evenly spaced.
+*/
+
   .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+/*
+  Individual Product Card
+  -----------------------
+  General styling for each product card,
+  including appearance, sizing, and hover effects.
+*/
+.product-card {
+  background: #fff;
+  border-radius: 12px; // Du premier bloc, légèrement moins arrondi
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); // Du premier bloc, plus prononcé
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px; // Du premier bloc, plus large par défaut
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease; // Transition plus rapide du premier bloc
+}
+
+.product-card:hover {
+  transform: translateY(-8px); // Effet hover du premier bloc
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18); // Effet hover du premier bloc
+}
+
+/*
+  Product Card Image
+  ------------------
+  Styling for the image within each product card.
+*/
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain; // Change de 'cover' à 'contain' du premier bloc
+  display: block; // Du premier bloc
+  background-color: #f9f9f9; // Du premier bloc
+  border-top-left-radius: 12px; // Adapté au border-radius de la carte
+  border-top-right-radius: 12px; // Adapté au border-radius de la carte
+  padding: 12px; // Du premier bloc
+}
+
+/*
+  Card Header (Title)
+  -------------------
+  Styling for the header section of the card, primarily for the product title.
+*/
+ion-card-header { // Pas besoin de .page-supports
+  padding: 12px 15px 6px 15px; // Du premier bloc
+  text-align: center;
+}
+
+ion-card-title { // Pas besoin de .page-supports
+  font-size: 1.2em; // Du premier bloc, légèrement plus petit
+  font-weight: 600; // Du premier bloc
+  color: #222; // Du premier bloc
+}
+
+/*
+  Card Content
+  ------------
+  Styling for the main content area of the card,
+  including description, details, rating, and price.
+*/
+ion-card-content { // Pas besoin de .page-supports
+  padding: 6px 15px 15px 15px; // Du premier bloc
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centré comme le premier bloc
+  justify-content: flex-end; // Pousse les éléments vers le bas si la carte est plus grande
+  flex-grow: 1; // Permet au contenu de s'étendre
+  gap: 10px; // Ajouté du second bloc pour un espacement interne
+}
+
+.description,
+.details {
+  font-size: 0.95em;
+  color: #555;
+  text-align: center; // Ajouté du second bloc, pertinent
+}
+
+/*
+  Rating Section
+  --------------
+  Styling for the star rating and review count.
+*/
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center; // Centré comme le second bloc
+  margin-bottom: 10px; // Du premier bloc
+  font-size: 1em; // Du second bloc
+  gap: 8px; // Du second bloc
+
+  ion-icon { // Styles spécifiques aux icônes d'étoiles
+    font-size: 1.3em; // Du premier bloc
+    margin-right: 3px; // Du premier bloc
+    &.filled {
+      color: #ffc107; // Couleur orange du premier bloc
+    }
+    &:not(.filled) {
+      color: #ccc;
+    }
+  }
+
+  span { // Pour le nombre d'avis
+    font-size: 0.95em; // Du premier bloc
+    color: #555;
+    margin-left: 5px; // Du premier bloc
+  }
+}
+
+/*
+  Product Price
+  -------------
+  Styling for the price display.
+*/
+.price {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #007bff;
+  margin-top: auto; // Du premier bloc, pousse le prix vers le bas
+  text-align: center; // Ajouté du second bloc
+}
+
+/*
+  Pagination Buttons
+  ------------------
+  Styling for navigation buttons (if applicable to this page).
+*/
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+
+  ion-button {
+    --border-radius: 10px;
+    --background: #007bff;
+    --color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    &:disabled {
+      --background: #ccc;
+      color: #999;
+    }
+  }
+}
+
+/*
+  No Products Message
+  -------------------
+  Styling for when no products are displayed.
+*/
+.no-products-message {
+  text-align: center;
+  color: #666;
+  margin-top: 50px;
+  font-size: 1.2em;
+}
+
+/*
+  Add to Cart Button (Global if not on product card content)
+  ------------------
+  Styling for the call-to-action button.
+*/
+// Si ce bouton est *seulement* à l'intérieur de ion-card-content,
+// alors le margin-top: auto dans ion-card-content suffit.
+// Si c'est un bouton générique de "Commander", vous pourriez le définir ici.
+// .page-supports ion-button {
+//   border-radius: 10px;
+// }
+
+
+/*
+  Responsive Adjustments
+  ----------------------
+  Media queries for different screen sizes.
+*/
+@media (max-width: 576px) {
+  .main-page-title {
+    font-size: 1.8em;
+    margin: 25px auto 20px auto;
+  }
+
+  .section-subtitle {
+    font-size: 1.4em;
+    margin: 25px auto 15px auto;
+  }
+
+  .cards-container {
+    gap: 15px;
+    grid-template-columns: 1fr; // Une seule colonne pour les petits écrans
   }
 
   .product-card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 100%;
-    max-width: 320px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 95%; // Prend presque toute la largeur disponible
   }
 
   .product-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    height: 180px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+  .cards-container {
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Reste flexible avec 2 ou 3 colonnes
   }
 
-  ion-card-header {
-    padding: 12px;
-    text-align: center;
+  .product-card {
+    max-width: none; // Permet au grid de contrôler la largeur
+    width: 100%; // Prend 100% de la colonne du grid
+  }
+}
+
+@media (min-width: 992px) {
+  .cards-container {
+    gap: 30px;
   }
 
-  ion-card-title {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #333;
-  }
-
-  ion-card-content {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex-grow: 1;
-  }
-
-  .description, .details {
-    font-size: 0.95em;
-    color: #555;
-    text-align: center;
-  }
-
-  .rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1em;
-    gap: 8px;
-    color: #f39c12;
-  }
-
-  .price {
-    font-size: 1.4em;
-    font-weight: bold;
-    text-align: center;
-    color: #007bff;
-  }
-
-  ion-button {
-    margin-top: auto;
-    border-radius: 10px;
+  .product-card {
+    max-width: 320px; // Taille fixe pour les grands écrans
   }
 }

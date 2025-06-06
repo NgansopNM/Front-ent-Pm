@@ -1,38 +1,57 @@
-<app-header></app-header>
+<app-header (searchQuery)="handleSearch($event)"></app-header>
 
 <ion-content>
-  <h1 class="main-page-title">Nos Meilleurs Produits</h1> <p *ngIf="!allProducts || allProducts.length === 0" class="no-products-message">
-    Aucun produit disponible pour le moment.
-  </p>
 
-  <div *ngIf="groupedProducts && groupedProducts.length > 0">
-    <ng-container *ngFor="let row of groupedProducts; let rowIndex = index">
-      <h2 class="section-subtitle">
-        {{ getSectionTitle(rowIndex * 3) }}
-      </h2>
+  <div *ngIf="!isSearching">
+    <h1 class="main-page-title">Nos Meilleurs Produits</h1>
+    <p *ngIf="!allProducts || allProducts.length === 0" class="no-products-message">
+      Aucun produit disponible pour le moment.
+    </p>
 
-      <div class="cards-container">
-        <ion-card *ngFor="let product of row" class="product-card" [routerLink]="['/detail-produit', product.id]">
-          <img [src]="product.image" [alt]="product.name" />
-          <ion-card-header>
+    <div *ngIf="groupedProducts && groupedProducts.length > 0">
+      <ng-container *ngFor="let row of groupedProducts; let rowIndex = index">
+        <h2 class="section-subtitle">{{ getSectionTitle(rowIndex * 3) }}</h2>
+
+        <div class="cards-container">
+          <ion-card *ngFor="let product of row" class="product-card" [routerLink]="['/detail-produit', product.id]">
+            <img [src]="product.image" [alt]="product.name" />
+            <ion-card-header>
+              <ion-card-title>{{ product.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="rating">
+                <ion-icon *ngFor="let star of [1, 2, 3, 4, 5]" [name]="star <= product.rating ? 'star' : 'star-outline'" [class.filled]="star <= product.rating"></ion-icon>
+                <span>{{ product.reviews }}</span>
+              </div>
+              <p class="price">{{ product.price }} fcfa</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="isSearching">
+
+    <div class="cards-container">
+      <ion-card *ngFor="let product of searchResults" class="product-card" [routerLink]="['/detail-produit', product.id]">
+        <img [src]="product.image" [alt]="product.name" />
+        <ion-card-header>
             <ion-card-title>{{ product.name }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
+        </ion-card-header>
+        <ion-card-content>
             <div class="rating">
-              <ion-icon
-                *ngFor="let star of [1, 2, 3, 4, 5]"
-                [name]="star <= product.rating ? 'star' : 'star-outline'"
-                [class.filled]="star <= product.rating"
-              ></ion-icon>
+              <ion-icon *ngFor="let star of [1, 2, 3, 4, 5]" [name]="star <= product.rating ? 'star' : 'star-outline'" [class.filled]="star <= product.rating"></ion-icon>
               <span>{{ product.reviews }}</span>
             </div>
             <p class="price">{{ product.price }} fcfa</p>
-          </ion-card-content>
-        </ion-card>
-      </div>
-    </ng-container>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+    <p *ngIf="searchResults.length === 0" class="no-products-message">
+      Aucun produit ne correspond à votre recherche.
+    </p>
   </div>
-
-  <app-footer></app-footer>
-</ion-content>
-
+ <app-footer></app-footer>
+  </ion-content>

@@ -1,9 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <p>Login</p>
+  <div class="form-container">
+    <div class="form-wrapper">
+      <div class="form-header">
+        <ion-title>Connexion</ion-title>
+        <p>Content de vous revoir !</p>
+      </div>
+
+      <form (ngSubmit)="login()">
+        <ion-item lines="full">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input label="Adresse Email" labelPlacement="floating" type="email" [(ngModel)]="credentials.email" name="email" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input label="Mot de passe" labelPlacement="floating" type="password" [(ngModel)]="credentials.password" name="password" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="ion-margin-top main-button">
+          Se connecter
+        </ion-button>
+      </form>
+
+      <div class="switch-form">
+        <p>Pas encore de compte ? <a routerLink="/register">S'inscrire</a></p>
+      </div>
+    </div>
+  </div>
 </ion-content>

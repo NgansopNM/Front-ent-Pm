@@ -1,0 +1,128 @@
+.cart-container {
+  padding: 16px 8px; /* Diminution du padding gauche/droit */
+
+  ion-list {
+    margin-bottom: 20px;
+    background: var(--ion-color-step-50, #f2f2f2);
+    max-width: 800px; /* Limite la largeur */
+    margin-left: auto;
+    margin-right: auto; /* Centre la liste */
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour la liste */
+
+    ion-item {
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      --border-color: var(--ion-color-step-150, #d9d9d9);
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background: var(--ion-background-color, #ffffff);
+
+      ion-thumbnail {
+        --size: 80px;
+        margin: 10px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      ion-label {
+        padding: 10px 0;
+
+        h2 {
+          font-size: 1.1em;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 0.9em;
+          color: var(--ion-color-medium);
+          margin-bottom: 3px;
+        }
+
+        h3 {
+          font-size: 1.05em;
+          font-weight: bold;
+          color: var(--ion-color-primary);
+          margin-top: 5px;
+        }
+      }
+
+      ion-buttons {
+        margin-right: 10px;
+      }
+
+      .quantity-input {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        --padding-start: 0;
+        --padding-end: 0;
+        font-size: 1em;
+        font-weight: bold;
+        border: 1px solid var(--ion-color-light);
+        border-radius: 5px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .total-price-row {
+    --padding-start: 16px;
+    --inner-padding-end: 16px;
+    margin-top: 20px;
+    border-top: 2px solid var(--ion-color-light);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: var(--ion-background-color, #ffffff);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Limite la largeur */
+    margin-left: auto;
+    margin-right: auto; /* Centre la ligne de total */
+  }
+
+  .order-button {
+    margin: 20px auto; /* Centre le bouton */
+    --background: #87CEEB; /* Bleu ciel */
+    --color: #000000; /* Couleur de texte noir pour meilleur contraste */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px; /* Même largeur max que le reste */
+    width: calc(100% - 16px); /* Largeur totale moins le padding */
+    display: block;
+    font-weight: bold;
+  }
+
+  .empty-cart-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    text-align: center;
+    color: var(--ion-color-medium);
+    max-width: 800px;
+    margin: 0 auto; /* Centre le message */
+
+    ion-icon {
+      font-size: 5em;
+      margin-bottom: 15px;
+      color: var(--ion-color-medium);
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    ion-button {
+      width: 80%;
+      max-width: 300px;
+      --background: #87CEEB; /* Bleu ciel aussi pour ce bouton */
+      --color: #000000;
+    }
+  }
+}

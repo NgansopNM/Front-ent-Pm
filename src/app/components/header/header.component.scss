@@ -5,11 +5,59 @@ ion-header {
   background-color: white;
 }
 
+.cart-button {
+  position: relative; // Permet de positionner le badge absolument par rapport au bouton
+  margin-right: 10px; // Pour laisser un peu d'espace si nécessaire
+}
+
+.cart-badge {
+  position: absolute;
+  top: 5px;   // Ajustez pour la position verticale
+  right: 5px; // Ajustez pour la position horizontale
+  min-width: 18px; // Assure que le badge a une taille minimale
+  height: 18px;
+  line-height: 18px;
+  padding: 0 5px;
+  border-radius: 50%; // Pour un badge rond
+  font-size: 0.7em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .top-bar {
   --background: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 5px 0;
 }
+
+// Ce code est identique à la partie CSS de votre header
+ion-header {
+  position: sticky;
+  top: 0;
+  z-index: 10; // Un z-index plus bas est suffisant
+  background-color: white;
+}
+.cart-button { position: relative; }
+.cart-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  min-width: 18px;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 5px;
+  border-radius: 50%;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+.top-bar {
+  --background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+}
+// ... et tous les autres styles de votre header (.logo, .livraison, .custom-searchbar, .icons, .categorie-bar)
 
 .logo-col {
   display: flex;

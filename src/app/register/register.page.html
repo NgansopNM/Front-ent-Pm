@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+  <div class="form-container">
+    <div class="form-wrapper">
+      <div class="form-header">
+        <ion-title>Créer un Compte</ion-title>
+        <p>Rejoignez-nous dès aujourd'hui !</p>
+      </div>
+
+      <form (ngSubmit)="register()">
+        <ion-item lines="full">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-input label="Nom complet" labelPlacement="floating" type="text" [(ngModel)]="userData.nom" name="nom" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input label="Adresse Email" labelPlacement="floating" type="email" [(ngModel)]="userData.email" name="email" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-icon name="school-outline" slot="start"></ion-icon>
+          <ion-input label="Filière" labelPlacement="floating" type="text" [(ngModel)]="userData.filiere" name="filiere" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input label="Mot de passe" labelPlacement="floating" type="password" [(ngModel)]="userData.password" name="password" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="ion-margin-top main-button">
+          S'inscrire
+        </ion-button>
+      </form>
+
+      <div class="switch-form">
+        <p>Déjà un compte ? <a routerLink="/login">Se connecter</a></p>
+      </div>
+    </div>
+  </div>
+</ion-content>
