@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CartService } from '../../services/cart.service'; // Assurez-vous que le chemin est correct
+import { CartService } from '../../services/cart.service'; 
 
 @Component({
-  selector: 'app-header', // Le sélecteur pour utiliser ce composant
+  selector: 'app-header', 
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone:false
@@ -12,8 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cartItemCount: number = 0;
   private cartSubscription: Subscription | undefined;
 
-  // NOUVEAU: Émetteur d'événement pour la recherche
-  // Il enverra le texte de la recherche au composant parent.
+  
   @Output() searchQuery = new EventEmitter<string>();
 
   constructor(private cartService: CartService) { }
@@ -26,10 +25,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
   }
 
-  // NOUVEAU: Fonction appelée par la barre de recherche dans le HTML
+ 
   onSearchInput(event: any) {
-    const query = event.target.value || ''; // Récupère la valeur, ou une chaîne vide
-    this.searchQuery.emit(query); // Émet la valeur vers le parent
+    const query = event.target.value || ''; 
+    this.searchQuery.emit(query); 
   }
 
   ngOnDestroy() {

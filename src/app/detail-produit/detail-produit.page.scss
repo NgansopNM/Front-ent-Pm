@@ -13,7 +13,7 @@ ion-content {
 
     @media (min-width: 768px) {
       flex-direction: row;
-      margin-top: 50px; /* Add some top margin for larger screens */
+      margin-top: 50px; 
     }
   }
 
@@ -21,18 +21,18 @@ ion-content {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center image vertically */
+    align-items: center; 
   }
 
   .product-main-image {
     width: 100%;
     max-width: 400px;
-    height: auto; /* Allow height to adjust naturally */
+    height: auto; 
     border-radius: 12px;
-    object-fit: contain; /* Ensures the entire image is visible within its container */
+    object-fit: contain; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9; /* Light background for images that don't fill */
-    padding: 10px; /* Inner padding for the image */
+    background-color: #f9f9f9;
+    padding: 10px; 
   }
 
   .product-details-section {
@@ -40,14 +40,14 @@ ion-content {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 10px; /* Add some padding around the details section */
+    padding: 10px; 
   }
 
   .product-name {
-    font-size: 28px; /* Slightly larger for prominence */
+    font-size: 28px; 
     font-weight: bold;
     color: #222;
-    margin-bottom: 5px; /* Adjust spacing */
+    margin-bottom: 5px; 
   }
 
   .product-rating {
@@ -58,7 +58,7 @@ ion-content {
 
   .product-rating ion-icon {
     color: #f2b01e;
-    font-size: 22px; /* Slightly larger stars */
+    font-size: 22px;
     margin-right: 4px;
   }
 
@@ -80,21 +80,21 @@ ion-content {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 15px; /* Increased gap */
+    gap: 15px; 
     margin-bottom: 20px;
   }
 
   .product-price {
-    font-size: 26px; /* More prominent price */
+    font-size: 26px; 
     font-weight: bold;
     color: #0c6cf2;
   }
 
-  /* Quantity Selector Styling */
+  
   .quantity-selector {
     display: flex;
     align-items: center;
-    gap: 12px; /* Space between "Quantité:" text and controls */
+    gap: 12px;
     font-size: 16px;
     font-weight: 500;
     color: #333;
@@ -105,48 +105,48 @@ ion-content {
     align-items: center;
     border: 1px solid #ddd;
     border-radius: 8px;
-    overflow: hidden; /* Ensures buttons and number are visually contained */
+    overflow: hidden; 
     background-color: #fff;
   }
 
   .quantity-controls ion-button {
     --padding-start: 12px;
     --padding-end: 12px;
-    --min-width: 45px; /* Ensure buttons are wide enough */
-    height: 45px; /* Consistent height for buttons */
-    font-size: 1.3em; /* Larger icons */
-    color: #007bff; /* Primary blue for icons */
+    --min-width: 45px; 
+    height: 45px; 
+    font-size: 1.3em; 
+    color: #007bff; 
     transition: background-color 0.2s ease;
   }
 
   .quantity-controls ion-button:active {
-    background-color: #e6f0ff; /* Light blue on press */
+    background-color: #e6f0ff; 
   }
 
   .quantity-controls .current-quantity {
-    padding: 0 18px; /* Space around the number */
+    padding: 0 18px; 
     font-weight: bold;
     font-size: 1.2em;
-    min-width: 40px; /* Ensure space for two-digit numbers */
+    min-width: 40px;
     text-align: center;
     color: #222;
   }
 
   .action-buttons {
     display: flex;
-    gap: 15px; /* Increased gap between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 15px; 
+    flex-wrap: wrap; 
     margin-top: 20px;
   }
 
   .add-to-cart-button {
-    flex-grow: 1; /* Allows button to take available space */
+    flex-grow: 1; 
     --background: linear-gradient(135deg, #007bff, #0056b3);
     --color: #fff;
     font-weight: bold;
     font-size: 17px;
-    border-radius: 10px; /* Slightly larger border-radius */
-    height: 50px; /* Taller button */
+    border-radius: 10px; 
+    height: 50px; 
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
   }
 
@@ -157,16 +157,16 @@ ion-content {
   .add-to-wishlist-button {
     --padding-start: 15px;
     --padding-end: 15px;
-    --min-width: 50px; /* Fixed width for wishlist button */
-    height: 50px; /* Match height of add to cart button */
+    --min-width: 50px;
+    height: 50px; 
     border-radius: 10px;
-    border: 2px solid #ccc; /* Add a subtle border */
+    border: 2px solid #ccc; 
   }
 
   .add-to-wishlist-button ion-icon {
     color: #888;
     transition: color 0.3s ease;
-    font-size: 26px; /* Larger icon */
+    font-size: 26px; 
   }
 
   .add-to-wishlist-button.liked ion-icon {
@@ -175,10 +175,10 @@ ion-content {
 
   .delivery-info-card {
     margin-top: 24px;
-    padding: 15px; /* Increased padding */
-    background-color: #f8faff; /* Lighter background */
+    padding: 15px; 
+    background-color: #f8faff; 
     border-radius: 12px;
-    border: 1px solid #e0e6f0; /* Subtle border */
+    border: 1px solid #e0e6f0; 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   }
 
@@ -208,18 +208,18 @@ ion-content {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
-  /* Supprime l'onglet "Donner votre avis" */
+  
   .give-opinion {
     display: none;
   }
 
-  /* Similar Products Section */
+
   .similar-products-title {
-    font-size: 2em; /* Larger title for this section */
+    font-size: 2em; 
     font-weight: bold;
     color: #007bff;
     text-align: center;
-    margin: 40px auto 30px auto; /* More spacing */
+    margin: 40px auto 30px auto; 
     padding-bottom: 10px;
     border-bottom: 2px solid #ccc;
     max-width: 90%;
@@ -227,16 +227,16 @@ ion-content {
   }
 
   .cards-container {
-    display: grid; /* Use grid for better control */
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px; /* Adjusted gap */
+    gap: 25px;
     justify-items: center;
     margin-bottom: 30px;
   }
 
   .product-card {
-    width: 100%; /* Make card take full width of grid item */
-    max-width: 320px; /* Max width for individual cards */
+    width: 100%; 
+    max-width: 320px; 
     border-radius: 12px;
     background: #ffffff;
     overflow: hidden;
@@ -268,7 +268,7 @@ ion-content {
     text-align: center;
 
     ion-card-title {
-      font-size: 1.25em; /* Slightly larger */
+      font-size: 1.25em; 
       font-weight: 600;
       color: #222;
     }
@@ -320,29 +320,29 @@ ion-content {
     color: #666;
     margin-top: 20px;
     font-size: 1.2em;
-    grid-column: 1 / -1; /* Make it span all columns in the grid */
+    grid-column: 1 / -1; 
   }
 
-  /* Responsive Adjustments */
+ 
   @media (max-width: 767px) {
     .main-product-info {
       flex-direction: column;
-      align-items: center; /* Center content in column layout */
+      align-items: center; 
     }
 
     .product-details-section {
-      width: 100%; /* Full width for details on small screens */
-      max-width: 400px; /* Constrain max width for consistency */
+      width: 100%; 
+      max-width: 400px; 
     }
 
     .action-buttons {
-      flex-direction: column; /* Stack buttons on small screens */
+      flex-direction: column; 
       gap: 10px;
     }
 
     .add-to-cart-button,
     .add-to-wishlist-button {
-      width: 100%; /* Full width buttons */
+      width: 100%; 
     }
   }
 }

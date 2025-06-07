@@ -15,11 +15,9 @@ export class AuthGuard implements CanActivate {
     return this.authService.isAuthenticated.pipe(
       map(isAuthenticated => {
         if (!isAuthenticated) {
-          // Si non authentifié, redirige vers la page de login
           this.router.navigateByUrl('/login');
           return false;
         }
-        // Si authentifié, autorise l'accès
         return true;
       })
     );

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from '../services/cart.service'; // Importez le CartService
+import { CartService } from '../services/cart.service'; 
 
 @Component({
   selector: 'app-detail-produit',
@@ -14,7 +14,6 @@ export class DetailProduitPage implements OnInit {
   similarProducts: any[] = [];
   quantity: number = 1;
 
-  // Votre liste de produits (conservée telle quelle)
   private allAvailableProducts = [
     {
       id: 1,
@@ -283,7 +282,7 @@ export class DetailProduitPage implements OnInit {
   incrementQuantity() {
     if (this.product && this.quantity < this.product.stock) {
       this.quantity++;
-    } else if (this.product && !this.product.stock) { // Allow infinite if no stock defined
+    } else if (this.product && !this.product.stock) { 
       this.quantity++;
     }
   }
@@ -294,12 +293,12 @@ export class DetailProduitPage implements OnInit {
     }
   }
 
-  // MODIFIÉ : Appelle la méthode du CartService avec l'objet produit complet
+ 
   addToCart() {
     if (this.product) {
-      this.cartService.addItemToCart(this.product, this.quantity); // Passe le produit et la quantité
+      this.cartService.addItemToCart(this.product, this.quantity); 
       console.log(`Ajout de ${this.quantity} de ${this.product.name} (ID: ${this.product.id}) au panier.`);
-      // Vous pourriez ajouter un toast ou une alerte ici pour informer l'utilisateur
+     
     } else {
       console.warn('Impossible d\'ajouter au panier : produit non défini.');
     }

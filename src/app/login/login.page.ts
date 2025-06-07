@@ -28,27 +28,22 @@ export class LoginPage implements OnInit {
   }
 
   async login() {
-    // Affiche un indicateur de chargement si nécessaire
-    // const loading = await this.loadingController.create({ message: 'Connexion en cours...' });
-    // await loading.present();
 
     this.authService.login(this.credentials).then(async (isValid) => {
-      // await loading.dismiss(); // Masque l'indicateur de chargement
-
+     
       if (isValid) {
-        // --- Logique pour la commande après une connexion réussie ---
-        const itemsToOrder = this.cartService.getAndClearCartForOrder(); // Récupère les articles et vide le panier
+       
+        const itemsToOrder = this.cartService.getAndClearCartForOrder(); 
 
         if (itemsToOrder.length > 0) {
-          // Sauvegarde temporairement les articles dans le localStorage
-          // pour que la page 'achat' puisse les récupérer.
+         
           localStorage.setItem('lastOrderedItems', JSON.stringify(itemsToOrder));
           console.log('Commande prête, redirection vers la facture:', itemsToOrder);
-          this.router.navigateByUrl('/achat'); // Redirige vers la page de facture
+          this.router.navigateByUrl('/achat'); 
         } else {
-          // Si le panier est vide (pas de commande en attente), redirige vers une page par défaut
+          
           console.log('Panier vide, pas de commande en attente. Redirection vers l\'accueil.');
-          this.router.navigateByUrl('/home'); // Ou '/profile', etc.
+          this.router.navigateByUrl('/home'); 
         }
       } else {
         const alert = await this.alertController.create({
@@ -59,7 +54,7 @@ export class LoginPage implements OnInit {
         await alert.present();
       }
     }).catch(async (error) => {
-      // await loading.dismiss(); // Masque l'indicateur de chargement en cas d'erreur
+     
       console.error('Erreur lors de la connexion:', error);
       const alert = await this.alertController.create({
         header: 'Erreur',

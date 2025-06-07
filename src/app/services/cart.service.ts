@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface CartItem {
-  product: any; // Idéalement, une interface Product devrait être définie ici
+  product: any; 
   quantity: number;
 }
 

@@ -41,7 +41,7 @@ export class RegisterPage implements OnInit {
 
     this.authService.register(this.userData).then(async (res) => {
       const toast = await this.toastController.create({
-        message: 'Inscription réussie ! Vous pouvez maintenant vous connecter.',
+        message: '',
         duration: 3000,
         color: 'success'
       });

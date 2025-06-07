@@ -7,22 +7,22 @@ import { Component, OnInit } from '@angular/core';
   standalone:false,
 })
 export class HomePage implements OnInit {
-  // Liste "maître" de tous les produits, ne sera jamais modifiée après le chargement.
+ 
   allProducts: any[] = [];
   
-  // NOUVEAU: Liste pour les résultats de la recherche.
+  
   searchResults: any[] = [];
   
-  // NOUVEAU: Indicateur pour savoir si une recherche est en cours.
+ 
   isSearching: boolean = false;
 
-  // Données pour l'affichage par défaut.
+  
   groupedProducts: any[][] = [];
 
   constructor() {}
 
   ngOnInit() {
-    // Les données de vos produits
+   
     this.allProducts = [
         { id: 1, image: 'assets/laptop1.jpg', name: 'Laptop HP 11eme generation', rating: 4, reviews: 433, price: '160 000' },
         { id: 2, image: 'assets/laptop2.jpg', name: 'Laptop DELL 13eme generation ', rating: 3, reviews: 421, price: '210 000' },
@@ -47,18 +47,16 @@ export class HomePage implements OnInit {
     this.groupProductsIntoRows();
   }
 
-  /**
-   * MODIFIÉ: Gère la recherche reçue du header.
-   */
+  
   handleSearch(query: string) {
     const formattedQuery = query.toLowerCase();
 
     if (!formattedQuery) {
-      // Si la recherche est vide, on arrête le mode recherche
+      
       this.isSearching = false;
       this.searchResults = [];
     } else {
-      // Sinon, on active le mode recherche et on filtre les résultats
+      
       this.isSearching = true;
       this.searchResults = this.allProducts.filter(product =>
         product.name.toLowerCase().includes(formattedQuery)
